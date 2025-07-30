@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Applicants | Job Finder</title>
+    <link rel="stylesheet" href="{% static 'css/applicants.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        main {
+            padding: 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px 16px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #00b386;
+            color: #fff;
+        }
+
+        td a.btn {
+            padding: 6px 10px;
+            margin-right: 6px;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .contact-btn {
+            background-color: #007bff;
+        }
+
+        .email-btn {
+            background-color: #28a745;
+        }
+
+        .no-applicants {
+            text-align: center;
+            font-size: 18px;
+            margin-top: 40px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="/" class="logo">JOB FINDER</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/dashboard">Dashboard</a>
+                <a href="/logout">Logout</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Applicants Section -->
+    <main>
+        <h1 class="section-title">Applicants for: {{ applicant.0.job.title }}</h1>
+
+        {% if applicant %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for x in applicant %}
+                <tr>
+                    <td>{{ x.applicant.name }}</td>
+                    <td>+91{{ x.applicant.phone }}</td>
+                    <td>{{ x.email }}</td>
+                    <td>
+                        <a href="tel:https://wa.me/+91{{ x.applicant.phone }}" class="btn contact-btn">Call</a>
+                        <a href="mailto:{{ x.email }}" class="btn email-btn">Email</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p class="no-applicants">No applicants have applied for this job yet.</p>
+        {% endif %}
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 QuickHire. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <title>Job Finder</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <header id="navbar">
+        <nav>
+            <div class="logo">
+                JOB finder...
+            </div>
+
+            <!-- Desktop Navigation -->
+            <div class="nav-links">
+                <a href="/recruit">For Employer</a>
+                <a href="/jobs">Jobs</a>
+                <a href="#">Help</a>
+            </div>
+
+            <!-- Auth Buttons -->
+            <div>
+                <a href="/register" class="auth-btn">Sign In</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+<section class="hero">
+    <div class="hero-container">
+        <!-- Text Card -->
+        <div class="hero-card hero-content">
+            <h1 class="hero-title">
+                Find <br>
+                The Great Exciting &<br>
+                Remote-Friendly Jobs
+            </h1>
+            <h3 class="hero-subtitle">
+                Getting a new job is never easy. Check what new jobs we have
+                in store for you on Job Finder.
+            </h3>
+        </div>
+
+        <!-- Image Card -->
+        <div class="hero-card hero-image">
+            <!-- background-image is handled in CSS -->
+            <img src="{% static '/images/workimg.jpeg' %}">
+        </div>
+    </div>
+</section>
+
+    <!-- Browse Categories Section -->
+    <section class="categories-section">
+        <div class="container">
+            <h1 class="section-title">
+                Browse talent by category
+            </h1>
+            <p class="section-subtitle">
+                Looking for work? <a href="#">Browse jobs</a>
+            </p>
+
+            <div class="categories-grid">
+                <a href="#" class="category-card">
+                    <h2 class="category-title">Development & IT</h2>
+                    <p class="category-stats">
+                        <span class="rating">★ 4.85/5</span>
+                        <span> | </span>
+                        <span>1853 skills</span>
+                    </p>
+                </a>
+
+                <a href="#" class="category-card">
+                    <h2 class="category-title">AI Services</h2>
+                    <p class="category-stats">
+                        <span class="rating">★ 4.8/5</span>
+                        <span> | </span>
+                        <span>294 skills</span>
+                    </p>
+                </a>
+
+                <a href="#" class="category-card">
+                    <h2 class="category-title">Design & Creative</h2>
+                    <p class="category-stats">
+                        <span class="rating">★ 4.91/5</span>
+                        <span> | </span>
+                        <span>968 skills</span>
+                    </p>
+                </a>
+
+                <a href="#" class="category-card">
+                    <h2 class="category-title">Sales & Marketing</h2>
+                    <p class="category-stats">
+                        <span class="rating">★ 4.77/5</span>
+                        <span> | </span>
+                        <span>392 skills</span>
+                    </p>
+                </a>
+
+                <a href="#" class="category-card">
+                    <h2 class="category-title">Writing & Translation</h2>
+                    <p class="category-stats">
+                        <span class="rating">★ 4.92/5</span>
+                        <span> | </span>
+                        <span>505 skills</span>
+                    </p>
+                </a>
+
+                <a href="#" class="category-card">
+                    <h2 class="category-title">Admin & Customer Support</h2>
+                    <p class="category-stats">
+                        <span class="rating">★ 4.77/5</span>
+                        <span> | </span>
+                        <span>508 skills</span>
+                    </p>
+                </a>
+
+                <a href="#" class="category-card">
+                    <h2 class="category-title">Finance & Accounting</h2>
+                    <p class="category-stats">
+                        <span class="rating">★ 4.79/5</span>
+                        <span> | </span>
+                        <span>214 skills</span>
+                    </p>
+                </a>
+
+                <a href="#" class="category-card">
+                    <h2 class="category-title">Engineering & Architecture</h2>
+                    <p class="category-stats">
+                        <span class="rating">★ 4.85/5</span>
+                        <span> | </span>
+                        <span>650 skills</span>
+                    </p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">
+                Steps: How It Works
+            </h2>
+            <p class="section-subtitle">
+                Quick and easy process to get started with part-time jobs
+            </p>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">01</div>
+                    <h3 class="step-title">Create an Account</h3>
+                    <p class="step-description">
+                        Sign up as a job seeker or recruiter to get started. It only takes a minute!
+                    </p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">02</div>
+                    <h3 class="step-title">Post or Search Jobs</h3>
+                    <p class="step-description">
+                        Recruiters can post jobs and seekers can browse them based on time and location.
+                    </p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">03</div>
+                    <h3 class="step-title">Apply & Connect</h3>
+                    <p class="step-description">
+                        Job seekers apply, and recruiters connect via WhatsApp or call. Simple and direct.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ad Banner -->
+    <div class="ad-banner">
+        <p class="ad-text">
+            🔔 Need more staff urgently? Promote your job post here!
+        </p>
+        <a href="/promote" class="promote-btn">
+            Promote Now
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p class="footer-text">&copy; 2025 QuickHire. All rights reserved.</p>
+            <p class="footer-text footer-links">
+                <a href="/about">About</a> |
+                <a href="/terms">Terms</a> |
+                <a href="/privacy">Privacy</a>
+            </p>
+            <p class="footer-text">
+                Contact us on
+                <a href="https://wa.me/918138872275">WhatsApp</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

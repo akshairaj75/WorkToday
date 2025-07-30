@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Listings</title>
+    <link rel="stylesheet" href="{% static 'css/jobs.css' %}">
+</head>
+<body>
+
+<header id="navbar">
+    <nav>
+        <div>
+            <strong><a class="navjob" href="/">JOB FINDER...</a></strong>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="nav-links">
+            <a href="/recruit">For Employer</a>
+            <a href="/jobs">Jobs</a>
+            <a href="#">Pages</a>
+            <a href="#">Help</a>
+        </div>
+
+        <!-- Auth Buttons -->
+        <div>
+            <a href="/register" class="auth-btn">Sign In</a>
+        </div>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero-section" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{% static 'images/Search.jpeg' %}') no-repeat center center;">
+    <div class="hero-content">
+        <h1 class="hero-title">Find Your Dream Job Today</h1>
+        <p class="hero-subtitle">Browse through thousands of job listings and find the perfect match for your skills</p>
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Job title, keywords, or company">
+            <button class="search-btn">Search</button>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+<!-- Job Listings Section -->
+<div class="job-container">
+    <h1 class="section-title">Available Job Listings</h1>
+
+    {% if job %}
+    <div class="job-grid">
+        {% for j in job %}
+        <div class="job-card">
+            <h2 class="job-title">{{ j.title }}</h2>
+            <div class="job-meta" style="font-weight: bold;">Posted by: {{ j.user_recruiter.name }}</div>
+            <div class="job-meta">📍 {{ j.location }} | 🗓️ {{ j.date }} | ⏰ {{ j.time }}</div>
+            <div class="job-meta">Category: {{ j.category }}</div>
+            <p class="job-description">{{ j.description }}</p>
+            <div class="job-info">
+                <span>₹ {{ j.wage }}</span>
+                <span>{{ j.vacancy }} Vacancies</span>
+            </div>
+            <a href="/apply/{{ j.id }}" class="apply-btn">Apply Now</a>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p class="no-jobs">No jobs available at the moment. Please check back later.</p>
+    {% endif %}
+</div>
+
+</body>
+</html>

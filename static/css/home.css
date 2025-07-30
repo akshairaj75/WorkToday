@@ -1,0 +1,353 @@
+/* ... your existing CSS here ... */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #f8fefc;
+  color: #222;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+/* Navbar */
+#navbar {
+  background-color: #00b386;
+  padding: 1rem 2rem;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.nav-links a {
+  color: white;
+  margin-left: 1.5rem;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.auth-btn {
+  background: white;
+  color: #00b386;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.mobile-menu-btn {
+  display: none;
+}
+
+/* Hero Section */
+
+
+
+.hero {
+  display: flex;
+  background-color: #f8fefc;
+  justify-content: center;
+}
+
+.hero-container {
+  display: flex;
+  gap: 2rem;
+  padding:10px;
+  margin: 60px;
+  margin-bottom:0px;
+
+
+}
+
+
+.hero-content {
+  color: #003b2f;
+   margin-left: 5%;
+    margin-top: 5%;
+}
+
+.hero-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.hero-image {
+
+
+}
+
+/* Categories Section */
+.categories-section {
+  padding: 3rem 1.5rem;
+  background-color: #f8fefc;
+  text-align: center;
+  padding-top:0px;
+}
+
+.section-title {
+  color: #00b386;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.category-card {
+  background: white;
+  border: 1px solid #e0f5ee;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: left;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.2s ease;
+}
+
+.category-card:hover {
+  background-color: #e8fbf5;
+}
+
+.category-title {
+  font-weight: 600;
+  color: #00b386;
+  margin-bottom: 0.5rem;
+}
+
+.category-stats {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.rating {
+  color: #f39c12;
+}
+
+/* Steps Section */
+
+.container {
+  background-color: white;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 1000px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.how-it-works {
+  background-color: #f3fdf9;
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.how-title {
+  font-size: 1.8rem;
+  color: #003b2f;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.how-subtitle {
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.steps-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.step-box {
+  background: white;
+  border: 1px solid #e0f5ee;
+  border-radius: 8px;
+  padding: 1.5rem;
+  max-width: 300px;
+  text-align: left;
+}
+
+.step-number {
+  font-size: 1.2rem;
+  color: #00b386;
+  font-weight: 700;
+}
+
+.step-title {
+  font-weight: 600;
+  margin: 0.5rem 0;
+}
+
+.step-description {
+  font-size: 0.9rem;
+  color: #444;
+}
+
+/* Footer */
+footer {
+  background-color: #f2f2f2;
+  padding: 2rem 1rem;
+  text-align: center;
+  border-top: 1px solid #e0e0e0;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.footer-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.footer-text {
+  margin: 0.5rem 0;
+}
+
+.footer-links a {
+  color: #00b386;
+  text-decoration: none;
+  margin: 0 0.4rem;
+  font-weight: 500;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+footer a {
+  color: #00b386;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+
+/* === Responsive Adjustments === */
+@media (max-width: 1024px) {
+  .hero-container {
+    flex-direction: column;
+    align-items: center;
+    margin: 30px 20px;
+  }
+
+  .hero-content {
+    margin: 20px 0;
+    text-align: center;
+  }
+
+  .categories-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  .steps-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .step-box {
+    width: 100%;
+    max-width: 90%;
+  }
+
+  .container {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 1.6rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .nav-links a {
+    margin-left: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .auth-btn {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .how-title {
+    font-size: 1.5rem;
+  }
+
+  .step-title {
+    font-size: 1rem;
+  }
+
+  .step-description {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .hero-title {
+    font-size: 1.4rem;
+  }
+
+  .section-title,
+  .how-title {
+    font-size: 1.3rem;
+  }
+
+  .footer-text,
+  .footer-links {
+    font-size: 0.85rem;
+  }
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for Job</title>
+    <link rel="stylesheet" href="{% static 'css/jobs.css' %}">
+    <style>
+        .apply-container {
+            max-width: 600px;
+            margin: 60px auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .apply-container h2 {
+            margin-bottom: 20px;
+        }
+        .apply-container label {
+            font-weight: bold;
+            margin-top: 15px;
+            display: block;
+        }
+        .apply-container input,
+        .apply-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .apply-container button {
+            margin-top: 20px;
+            background-color: #00b386;
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<header id="navbar">
+    <nav>
+        <div>
+            <strong><a class="navjob" href="/">JOB FINDER...</a></strong>
+        </div>
+    </nav>
+</header>
+
+<div class="apply-container">
+    <h2>Apply for {{ job.title }}</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        <label for="name">Your Full Name</label>
+        <input type="text" name="name" value="{{user.username}}" required>
+
+        <label for="email">Email Address</label>
+        <input type="email" name="email" value="{{user.email}}" placeholder="Enter email" required>
+
+        <label for="phone">Phone Number</label>
+        <input type="text" name="phone" value="{{user.phone}}" required>
+
+
+        <button type="submit">Submit Application</button>
+    </form>
+</div>
+
+</body>
+</html>
