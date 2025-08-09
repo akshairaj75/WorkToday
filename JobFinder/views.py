@@ -1,10 +1,8 @@
 from django.shortcuts import render,redirect
 from django.template.context_processors import request
-
 from .models import user, category,job,applications
-
-
 # Create your views here.
+
 
 def home(request):
     return render(request,'home.html')
@@ -57,14 +55,24 @@ def recruit(request):
 
 def manage_job(request,id):
     print("Inside manage_job view")
-    job_data = job.objects.get(id=id)
-    return render(request,'manage.html',{'x':job_data})
-
+    job_data = job.objects.get(id=id)   
+    categories = category.objects.all()
+    if request.method == 'POST':
+        job_data.title = request.POST.get('title')
+        job_data.date = request.POST.get('date')
+        job_data.time = request.POST.get('time')
+        job_data.location = request.POST.get('location')
+        job_data.wage = request.POST.get('wage')
+        job_data.vacancy = request.POST.get('vacancy')
+        job_data.description = request.POST.get('description')
+        job_data.category = category.objects.get(id = request.POST.get('category'))
+        job_data.save()
+        return redirect('/recruit')
+    return render(request,'manage.html',{'x':job_data, 'data':categories})
 
 def post_job(request,user_id):
     category_data = category.objects.all()
     user_data = user.objects.get(id = user_id)
-
     if request.method == 'POST':
         job_obj = job()
         job_obj.title = request.POST.get('title')
@@ -86,9 +94,11 @@ def applicants(request,id):
     applicants_data = applications.objects.filter(job_id = id)
     return render(request,'applicants.html',{'applicant':applicants_data})
 
+
 def job_fun(request):
     jobs = job.objects.all()
     return render(request,'jobs.html',{'job':jobs})
+
 
 def apply(request,id):
     job_data = job.objpects.get(id=id)
@@ -107,5 +117,7 @@ def apply(request,id):
         print('NOT LOGGED in')
         return redirect('/login')
 
+
 def success(request):
     return render(request,'success.html')
+

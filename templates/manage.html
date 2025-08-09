@@ -19,39 +19,43 @@
         </div>
     </nav>
 </header>
-
 <main>
     <section class="section-manage">
         <h1 class="section-title">Update Your Job Post</h1>
-
         {% if x %}
         <div class="jobs-grid">
             <div class="job-card">
-                <form action="/update_job/{{ x.id }}" method="POST">
+                <form method="POST">
                     {% csrf_token %}
-                    
                     <div class="job-header">
-                        <input type="text" name="title" value="{{ x.title }}" required>
-                        <input type="text" name="category" value="{{ x.category }}" required>
+                        <input type="text" name="title" value="{{ x.title }}" placeholder="Title" required>
+                          <select name="category" required>
+                            <option value="{{x.category.id}}">{{x.category.category_name}}</option>
+                            {% for category in data %}
+                                <option value="{{category.id}}">{{category.category_name}}</option>
+                            {% endfor %}
+                        </select>                   
                     </div>
-
-                    <textarea name="description" required>{{ x.description }}</textarea>
-
+                    <textarea name="description"  placeholder="job description..." required>{{ x.description }}</textarea>
+                    
                     <ul class="job-info">
+                            
                         <li><i class="fas fa-map-marker-alt"></i>
-                            <input type="text" name="location" value="{{ x.location }}" required>
+                            <input type="text" name="location" value="{{ x.location }}" placeholder="Location" required>
                         </li>
                         <li><i class="fas fa-calendar-day"></i>
-                            <input type="date" name="date" value="{{ x.date|date:'Y-m-d' }}" required>
+                            <input type="date" name="date" value="{{ x.date|date:'Y-m-d' }}" placeholder="date" required>
                         </li>
                         <li><i class="fas fa-clock"></i>
-                            <input type="time" name="time" value="{{ x.time }}" required>
+                            <input type="time" name="time" value="{{ x.time }}" placeholder="time" >
                         </li>
                         <li><i class="fas fa-coins"></i>
-                            ₹<input type="number" name="wage" value="{{ x.wage }}" required>
+                            ₹<input type="number" name="wage" value="{{ x.wage }}" placeholder="wage" required>
                         </li>
-                    </ul>
-
+                        <li><i class="fa-solid fa-people-group"></i>
+                            <input type="number" name="vacancy" value="{{ x.vacancy }}" placeholder="vacancy" required>
+                        </li>
+                    </ul>                    
                     <div class="action-buttons">
                         <button type="submit" class="btn update-btn">
                             <i class="fas fa-save"></i> Save Changes

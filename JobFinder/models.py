@@ -29,8 +29,3 @@ class applications(models.Model):
     applicant = models.ForeignKey(user, on_delete=models.CASCADE)
     email = models.EmailField(max_length=200,null=True)
 
-
-
-
-
-

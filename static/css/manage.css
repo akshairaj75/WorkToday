@@ -109,7 +109,17 @@ nav {
     background-color: #fdfdfd;
     transition: border-color 0.3s;
 }
-
+select{
+        font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    flex: 1;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background-color: #fdfdfd;
+    transition: border-color 0.3s;
+}
 .job-header input:focus {
     border-color: var(--primary);
     background-color: #fff;
