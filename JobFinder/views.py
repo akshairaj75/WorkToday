@@ -101,7 +101,7 @@ def job_fun(request):
 
 
 def apply(request,id):
-    job_data = job.objpects.get(id=id)
+    job_data = job.objects.get(id=id)
     if 'user' in request.session:
         username = request.session['user']
         user_data = user.objects.get(username=username)
@@ -111,7 +111,7 @@ def apply(request,id):
             application_obj.applicant = user.objects.get(username=username)
             application_obj.email = request.POST.get('email')
             application_obj.save()
-            return render(request,'success.html')
+            return redirect('/success')
         return render(request, 'apply.html', {'job': job_data, 'user': user_data})
     else:
         print('NOT LOGGED in')
