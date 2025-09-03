@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Submitted</title>
+    <link rel="stylesheet" href="{% static 'css/jobs.css' %}">
+    <style>
+        body {
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+        }
+        .success-container {
+            max-width: 500px;
+            margin: 100px auto;
+            background: #fff;
+            padding: 40px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        .success-container h2 {
+            color: #00b386;
+            margin-bottom: 20px;
+        }
+        .success-container p {
+            margin-bottom: 30px;
+            color: #333;
+        }
+        .success-container a {
+            background-color: #00b386;
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .success-container a:hover {
+            background-color: #009973;
+        }
+    </style>
+</head>
+<body>
+
+<div class="success-container">
+    <h2>Application Submitted Successfully!</h2>
+    <p>Thank you for applying. The recruiter will contact you soon.</p>
+    <a href="/">Go to Homepage</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Job | Job Finder</title>
+    <link rel="stylesheet" href="{% static 'css/manage.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="/" class="logo">JOB FINDER</a>
+        <div class="nav-links">
+            <a href="/dashboard">Dashboard</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <section class="section-manage">
+        <h1 class="section-title">Update Your Job Post</h1>
+
+        {% if x %}
+        <div class="jobs-grid">
+            <div class="job-card">
+                <form  method="POST">
+                    {% csrf_token %}
+                    
+                    <div class="job-header">
+                        <input type="text" name="title" value="{{ x.title }}" required>
+                        <select name="category">
+                            <option value="">{{ x.category.category_name }}</option>
+                            {% for i in data %}
+                            <option value="{{i.id}}">{{ i.category_name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <textarea name="description" required>{{ x.description }}</textarea>
+                    <ul class="job-info">
+                        <li><i class="fas fa-map-marker-alt"></i>
+                            <input type="text" name="location" value="{{ x.location }}" required>
+                        </li>
+                        <li><i class="fas fa-calendar-day"></i>
+                            <input type="date" name="date" value="{{ x.date|date:'Y-m-d' }}" required>
+                        </li>
+                        <li><i class="fas fa-clock"></i>
+                            <input type="time" name="time" value="{{ x.time }}">
+                        </li>
+                        <li><i class="fas fa-coins"></i>
+                            ₹<input type="number" name="wage" value="{{ x.wage }}" required>
+                        </li>
+                    </ul>
+
+                    <div class="action-buttons">
+                        <button type="submit" class="btn update-btn">
+                            <i class="fas fa-save"></i> Save Changes
+                        </button>
+                        <a href="/delete_job/{{ x.id }}" class="btn delete-btn" onclick="return confirm('Are you sure you want to delete this job?');">
+                            <i class="fas fa-trash-alt"></i> Delete
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        {% else %}
+        <p class="no-jobs">You haven't posted any jobs yet. <a href="/post_job/{{ user_id }}">Post now</a></p>
+        {% endif %}
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2025 QuickHire. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

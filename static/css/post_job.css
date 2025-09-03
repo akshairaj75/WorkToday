@@ -1,0 +1,234 @@
+ *{
+  font-family: 'Poppins', sans-serif;
+  margin:0px;
+
+}
+
+/*Navbar*/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #00b386;
+  height:70px;
+  position:sticky;
+    top: 0;
+  left: 0;
+  z-index: 1000; /* stays on top of other elements */
+  padding: 0 60px;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.nav-links a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #ffff;
+  font-weight: 500;
+}
+
+.auth-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.sign-in {
+  margin-right: 15px;
+  text-decoration: none;
+  color: #ffff;
+}
+
+
+
+
+/*body*/
+.main-content {
+  padding: 20px;
+}
+
+
+.container {
+  border-radius: 16px;
+  display: flex;
+  box-shadow: 0 0 30px rgba(0,0,0,0.1);
+  overflow: hidden;
+  margin:50px;
+}
+
+
+/* FORM */
+
+.form-section{
+
+   width:100%;
+   padding:50px;
+}
+
+h2{
+    text-align:center;
+}
+input, select, textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+label {
+  font-weight: 600;
+  margin-bottom:2px;
+  color: #333;
+  display:block;
+}
+
+.form-inline-group{
+    display: flex;
+    gap:15px;
+    justify-content: space-around;
+}
+
+.form-group{
+width:100%;
+}
+
+
+input, select, textarea {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+textarea{
+  resize: vertical;
+  min-height: 80px;
+}
+
+button {
+  background-color: #00b386;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+
+
+/* Footer */
+
+.footer {
+  background-color: #00b386;
+  color: #ffffff;
+  padding: 20px 40px;
+  margin-top: 40px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.footer-links a {
+  color: #ffffff;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 14px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive footer */
+@media screen and (max-width: 600px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .footer-links {
+    margin-top: 10px;
+  }
+
+  .footer-links a {
+    margin-left: 0;
+    margin-right: 15px;
+  }
+}
+
+
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+    height: auto;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .auth-buttons {
+    margin-top: 10px;
+  }
+
+  .container {
+    flex-direction: column;
+    margin: 20px;
+  }
+
+  .form-section {
+    padding: 30px 20px;
+  }
+
+  .image-section {
+    max-height: 300px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .form-inline-group, .form-row {
+    flex-direction: column;
+  }
+
+  .navbar {
+    padding: 10px;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  button {
+    font-size: 14px;
+  }
+}
+
+
+

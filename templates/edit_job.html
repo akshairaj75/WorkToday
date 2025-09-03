@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Job Details</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/manage.css' %}">
+</head>
+<body>
+  <nav>
+    <div class="logo">QuickHire</div>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="#">My Jobs</a>
+      <a href="/logout">Logout</a>
+    </div>
+  </nav>
+
+  <div class="job-details-container">
+    <div class="job-header">
+      <h1 class="job-title">Event Support Staff Needed - Wedding Function</h1>
+    </div>
+    <div class="job-info">
+      <div><strong>Date:</strong> March 22, 2025</div>
+      <div><strong>Time:</strong> 4:00 PM – 10:00 PM</div>
+      <div><strong>Location:</strong> Kochi, Marine Drive</div>
+      <div><strong>Payment:</strong> ₹600</div>
+      <div><strong>Members Required:</strong> 5</div>
+      <div><strong>Status:</strong> Open</div>
+    </div>
+
+    <div class="job-description">
+      <h3>Job Description:</h3>
+      <p>
+        Looking for energetic individuals to assist with an evening wedding event. Duties include guest coordination,
+        setting up decorations, and general assistance. Please wear black pants and white shirts. Food will be provided.
+      </p>
+    </div>
+
+    <div class="contact-section">
+      <h4>Recruiter Contact:</h4>
+      <p>Name: Rahul Nair</p>
+      <p>Phone: <a href="tel:+919876543210">+91 98765 43210</a></p>
+      <p>WhatsApp: <a href="https://wa.me/918138872275" target="_blank">Chat on WhatsApp</a></p>
+    </div>
+
+    <div class="mark-filled">
+      <button>Mark as Filled</button>
+      <button>Edit</button>
+    </div>
+
+
+  </div>
+</body>
+</html>

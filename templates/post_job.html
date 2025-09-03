@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post a Job</title>
+    {% load static %}
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/post_job.css' %}">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">
+        JOB finder...
+    </div>
+
+    <nav class="nav-links">
+      <a href="/recruit">For Employer</a>
+      <a href="#">Pages</a>
+      <a href="#">Help</a>
+    </nav>
+
+    <div class="auth-buttons">
+      <a href="/register" class="sign-in"> Sign In</a>
+    </div>
+</header>
+<main>
+    <div class="container">
+        <div class="image-section">
+            <img src="{% static 'images/Free Vector _ Deadline and time management business concept vector_.jpeg' %}">
+        </div>
+        <div class="form-section">
+
+            <form method="post">
+                {% csrf_token %}
+                <h2>Post a Job</h2>
+
+                <div class="form-group">
+                    <label>Job Title</label>
+                    <input type="text" name="title" placeholder="Eg: Event Support Staff Needed">
+                </div>
+
+                <div class="form-inline-group">
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="date" name="date">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Time</label>
+                        <input type="text" name="time" placeholder="Eg: 5 PM">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Location</label>
+                        <input type="text" name="location" placeholder="Eg: Kochi, Marine Drive">
+                    </div>
+                </div>
+
+                <div class="form-inline-group">
+                    <div class="form-group">
+                        <label>Payment</label>
+                        <input type="text" name="payment" placeholder="Eg: ₹600">
+                    </div>
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select name="category">
+                            <option value="">Select Category</option>
+                            {% for x in data %}
+                                <option value="{{x.id}}">{{x.category_name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Members Required</label>
+                        <input type="number" name="members_required" placeholder="Eg: 5">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Job Description</label>
+                    <textarea name="description" placeholder="Describe the job details here..."></textarea>
+                </div>
+
+<!--                <div class="contact-heading">Recruiter Contact</div>-->
+<!--                <div class="form-row">-->
+<!--                    <div class="form-col form-group">-->
+<!--                        <label>Name</label>-->
+<!--                        <input type="text" name="recruiter_name" value="{{user_data.name}}">-->
+<!--                    </div>-->
+<!--                    <div class="form-col form-group">-->
+<!--                        <label>Phone</label>-->
+<!--                        <input type="text" name="recruiter_phone" value="{{user_data.phone}}">-->
+<!--                    </div>-->
+<!--                </div>-->
+
+                <button type="submit">Submit Job</button>
+            </form>
+        </div>
+   </div>
+</main>
+
+
+<footer class="footer">
+  <div class="footer-content">
+    <p>&copy; 2025 JOB finder. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+
+
+
+</footer>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

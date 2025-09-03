@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recruiter Dashboard | Job Finder</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
+    <!-- Custom Styles -->
+         <link rel="stylesheet" href="{% static 'css/recruit.css' %}">
+
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="/" class="logo">JOB FINDER</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="#section-job">My Jobs</a>
+                <a href="#">Help</a>
+                <a href="/logout">Logout</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Welcome, <span>{{ data.name }}</span></h1>
+                <p>Post part-time jobs and manage your recruitment with ease.</p>
+                <div class="hero-buttons">
+                    <a href="/post_job/{{ data.id }}" class="btn btn-primary">Post New Job</a>
+                    <a href="/manage/" class="btn btn-secondary">Manage All Jobs</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="{% static 'images/Free Vector _ Deadline and time management business concept vector_.jpeg' %}"
+                     alt="Recruitment Illustration">
+            </div>
+        </section>
+
+        <!-- Job Posts -->
+
+        <section class="section-job" id="section-job">
+            <h2 class="section-title">Your Active Job Posts</h2>
+            <div class="jobs-grid">
+                {% for x in job_data %}
+                <div class="job-card">
+                    <div class="job-card-header">
+                        <span class="job-type">{{ x.category.category_name }}</span>
+                        <span class="wage">${{ x.wage }}/hr</span>
+                    </div>
+                    <h2 class="job-title">{{ x.title }}</h2>
+                    <p class="job-description">{{ x.description }}</p>
+
+                    <ul class="job-details">
+                        <li><i class="fas fa-map-marker-alt"></i> {{ x.location }}</li>
+                        <li><i class="far fa-calendar"></i> {{ x.date }}</li>
+                        <li><i class="far fa-clock"></i> {{ x.time }}</li>
+                    </ul>
+
+                    <div class="tags">
+                        <span>Part-time</span>
+                        <span>On-site</span>
+                        <span>Flexible</span>
+                    </div>
+
+                    <a class="edit-link" href="/manage/{{x.id}}">Edit</a>
+
+                    <div class="card-actions">
+                        <a href="/applicants/{{ x.id }}" class="view-btn">
+                            <i class="fas fa-users"></i> View Applicants
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        <!-- Promo Banner -->
+        <div class="promo-banner">
+            <div class="promo-text">
+                <span>🔥</span>
+                <p>Promote your job post to reach more students instantly!</p>
+            </div>
+            <a href="/promote" class="promo-btn">Promote Now</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="/about">About</a>
+            <a href="/terms">Terms</a>
+            <a href="/privacy">Privacy</a>
+            <a href="https://wa.me/918138872275">Contact</a>
+        </div>
+        <p class="copyright">
+            &copy; 2025 QuickHire. All rights reserved.
+        </p>
+    </footer>
+
+</body>
+</html>
