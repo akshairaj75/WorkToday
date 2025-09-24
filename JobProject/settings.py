@@ -76,16 +76,9 @@ WSGI_APPLICATION = 'JobProject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME':'jobfinder',
-        'USER' :'root',
-        'PASSWORD':'akshai',
-        'HOST':'',
-        'PORT':'',
-        'OPTIONS':{
-            'init_command':'SET sql_mode="STRICT_TRANS_TABLES"'
-}
-}
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 
